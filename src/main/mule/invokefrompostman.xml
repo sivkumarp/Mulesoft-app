@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d0e9042d-66ac-4360-b823-79eb11929c6d" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="62fd545b-eae3-487c-a36f-1ba363617b44" >
+		<http:request-connection host="dummy.restapiexample.com">
+			<http:authentication >
+				<http:basic-authentication username="smahadev@wm.com" password="Appukutti2day!" />
+			</http:authentication>
+		</http:request-connection>
+	</http:request-config>
+	<flow name="invokefrompostmanFlow" doc:id="7e7f049f-de94-4d2c-81bd-12ceb12ab29f" >
+		<http:listener doc:name="Listener" doc:id="034e17b5-c49a-401a-8856-86e1b65de281" config-ref="HTTP_Listener_config" path="/Hello"/>
+		<http:request method="GET" doc:name="Request" doc:id="7df7cafc-e65f-4278-a1c9-6450a3d735ff" config-ref="HTTP_Request_configuration" path="/api/v1/employees"/>
+	</flow>
+</mule>
