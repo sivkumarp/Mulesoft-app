@@ -17,6 +17,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="invokefrompostmanFlow" doc:id="7e7f049f-de94-4d2c-81bd-12ceb12ab29f" >
 		<http:listener doc:name="Listener" doc:id="034e17b5-c49a-401a-8856-86e1b65de281" config-ref="HTTP_Listener_config" path="/Hello"/>
 		<http:request method="GET" doc:name="Request" doc:id="7df7cafc-e65f-4278-a1c9-6450a3d735ff" config-ref="HTTP_Request_configuration" path="/api/v1/employees"/>
-		<logger level="INFO" doc:name="Logger" doc:id="b69ff7fe-21fc-4a07-8d91-2c6a8832bfe7" message="End of flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="b69ff7fe-21fc-4a07-8d91-2c6a8832bfe7" message="Flow Ended"/>
 	</flow>
 </mule>
